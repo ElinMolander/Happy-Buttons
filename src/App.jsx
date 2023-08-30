@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react'
 import { motion, useAnimate } from "framer-motion"
 import './App.css'
-
+import Button from './Button.jsx'
 
 
 // import  { useLottie } from 'lottie-react'
@@ -10,6 +10,8 @@ import './App.css'
 
 
 function App() {
+
+
 // const options = {
 //   animationData: test,
 //   loop:false,
@@ -18,7 +20,10 @@ function App() {
 
 // const transformer = useTransform([0, 100], [0, 360])
 
-const [scope,animate] = useAnimate()
+
+
+const [scope, animate] = useAnimate()
+const [open, setOpen] = useState(false)
 
 const onButtonClick = () => {
   animate([
@@ -46,13 +51,9 @@ const onButtonClick = () => {
 
   return (
     <div ref={scope}>
-    <h1 
-                 
-              >Squash and stretch</h1>
+      <Button open={open} setOpen={setOpen} />
+    <h1>Squash and stretch</h1>
       <motion.button 
-            // animate={move ? "start":""}
-            // initial={{ y: -200 }}
-            // variants={variants}
             style= {style}
             onClick={onButtonClick}>
           play
