@@ -2,7 +2,7 @@ import React from 'react';
 import { useState, useEffect, useRef } from 'react'
 import lottie from "lottie-web/build/player/lottie_light"
 import Lottie from "lottie-react";
-import animationData from './anticipation.json'
+import animationData from './test.json'
 import PropTypes from 'prop-types'
 
 function Button (){
@@ -45,7 +45,7 @@ const [returnToIdle, setReturnToIdle] = useState(0)
           animationData,
         })
       
-      console.log(playSequence)
+      
         anim.current.playSegments([playSequence.start, playSequence.end],true);
       } catch (error){
         console.log("Det upstod ett fel vid inläsningen av animationen")
@@ -136,7 +136,7 @@ const [returnToIdle, setReturnToIdle] = useState(0)
 
 }
 
-export default Button;
+// export default Button;
 
 
     // else if(playSequence == animationSequence.fall)

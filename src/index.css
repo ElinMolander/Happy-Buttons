@@ -70,4 +70,11 @@ button {
 
 .animationDiv{
   cursor:pointer;
+  width: 20em;
+ 
+}
+
+.buttons-collection{
+  display: flex;
+  align-items: flex-end;
 }

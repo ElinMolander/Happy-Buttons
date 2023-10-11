@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react'
 import { motion, useAnimate } from "framer-motion"
 import './App.css'
-import Button from './Button.jsx'
+import Button2 from './Button2.jsx'
 
 
 // import  { useLottie } from 'lottie-react'
@@ -10,17 +10,6 @@ import Button from './Button.jsx'
 
 
 function App() {
-
-
-// const options = {
-//   animationData: test,
-//   loop:false,
-// }
-// const {View} = useLottie(options)
-
-// const transformer = useTransform([0, 100], [0, 360])
-
-
 
 const [scope, animate] = useAnimate()
 const [open, setOpen] = useState(false)
@@ -47,11 +36,17 @@ const onButtonClick = () => {
   const style = { originX:"0.5",
                     originY: "1"} 
   const [move, setMove] = useState(false)
+
+  const size = { with:"40px"}
  
 
   return (
     <div ref={scope}>
-      <Button open={open} setOpen={setOpen} />
+      <div className='buttons-collection'>
+      <Button2 open={open} setOpen={setOpen} style={size}/>
+     
+      </div>
+  
     <h1>Squash and stretch</h1>
       <motion.button 
             style= {style}
