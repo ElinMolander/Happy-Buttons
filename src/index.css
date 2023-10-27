@@ -23,7 +23,6 @@
   
 }
 
-
 body {
   margin: 0;
   display: flex;
@@ -35,7 +34,10 @@ body {
 h1 {
   font-size: 2.2em;
   line-height: 1.1;
-  
+}
+
+buttonsPressed {
+  width: 20px;
 }
 
 button {
@@ -52,7 +54,17 @@ button {
   margin-bottom: 20em;
 }
 
+.animationDiv{
+  cursor:pointer;
+  width: 20em;
+  margin: 0 auto;
+ 
+}
 
+.buttons-collection{
+  display: flex;
+  align-items: flex-end;
+}
 
 @media (prefers-color-scheme: light) {
   :root {
@@ -67,14 +79,3 @@ button {
   }
 }
 
-
-.animationDiv{
-  cursor:pointer;
-  width: 20em;
- 
-}
-
-.buttons-collection{
-  display: flex;
-  align-items: flex-end;
-}
