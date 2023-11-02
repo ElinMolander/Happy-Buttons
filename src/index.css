@@ -36,8 +36,8 @@ h1 {
   line-height: 1.1;
 }
 
-buttonsPressed {
-  width: 20px;
+.buttonsPressed {
+  margin-top: 6em;
 }
 
 button {
@@ -56,14 +56,13 @@ button {
 
 .animationDiv{
   cursor:pointer;
-  width: 20em;
+  width: 30em;
   margin: 0 auto;
- 
-}
+ }
 
 .buttons-collection{
   display: flex;
-  align-items: flex-end;
+  flex-direction: column;
 }
 
 @media (prefers-color-scheme: light) {

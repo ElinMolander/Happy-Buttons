@@ -25,7 +25,7 @@ const [open, setOpen] = useState(false)
   return (
     <div ref={scope}>
        <h1>
-            To cancel just press the button.
+            Happy buttons!
       </h1>
       <div className='buttons-collection'>
       <Button2 open={open} setOpen={setOpen} style={size}/>

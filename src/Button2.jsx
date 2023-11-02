@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState, useEffect, useRef } from 'react'
 import lottie from "lottie-web/build/player/lottie_light"
-import animationData from './deleteService.json'
+import animationData from './happyButtons.json'
 
 
 function Button2 (){
