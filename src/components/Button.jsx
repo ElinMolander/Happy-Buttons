@@ -1,8 +1,8 @@
 import React from 'react';
 import { useState, useEffect, useRef } from 'react'
 import lottie from "lottie-web/build/player/lottie_light"
-import animationData from './happyButtons.json'
-import newAnimation from './timestampAnimation.jsx'
+import animationData from '../happyButtons.json'
+import newAnimation from '../timestampAnimation.jsx'
 
 
 function Button ({clickHandler, count}){
