@@ -14,8 +14,9 @@ import {
   Link,
   Navigate,
 } from "react-router-dom";
-import logo from './logohappy.png'
-import happysmile from './happysmile.png'
+import logo from '../src/images/logohappy.png'
+import happysmile from '../src/images/happysmile.png'
+import happyX from './happyX.png'
 
 
 function App() {
@@ -29,23 +30,33 @@ function App() {
   const size = { with:"40px"}
   const [countpressedButton, setCountPressedButton] = useState(0)
   const [clickNav, setClickNav] = useState(true)
+  const [isAloudPressButton, setIsAloudPressButton] = useState(true)
   
   function clickHandler(){
-    if (count >= 9){
-      setCount(0)
-      }else {
-      setCount(count + 1)
-      }
-      confettiHandeler()
+    if (isAloudPressButton){
+
+      if (count >= 10){
+        setCount(0)
+        }else {
+        setCount(count + 1)
+        }
+        confettiHandeler()
+    }
+
+    function confettiHandeler(){
+      setPlayConfetti(preState => true)
+        setCountPressedButton(countpressedButton +1)  
+        // setTimeout(() =>{
+        //   setPlayConfetti(false)
+        // },3000)
+    }
+    console.log("enjoy the sparks first")
    }
 
-   function confettiHandeler(){
-    setPlayConfetti(preState => !preState)
-      setCountPressedButton(countpressedButton +1)  
-      setTimeout(() =>{
-        setPlayConfetti(false)
-      },3000)
-   }
+   function pressButton(){
+    setIsAloudPressButton(false)
+    console.log(`från pressButton${isAloudPressButton}`)
+  }
 
    function handleLinkChange(){
     setClickNav(preState => !preState)
@@ -64,13 +75,16 @@ function App() {
                           onClick={handleLinkChange}>
                             About
                         </Link> : <Link 
-                          className='about-link'
+                          className='about-link x-link'
                           to="/" 
                           onClick={handleLinkChange}>
-                            Home
+                            <img className="happy-x" src={happyX}></img>
+                            
+                            Back
                         </Link> 
             }
           </nav>
+          <div className='Header-boarder'></div>
       </header>
       <Routes>
         <Route path='/' element={ <Home 
@@ -81,6 +95,7 @@ function App() {
                   count={count}
                   countpressedButton={countpressedButton}
                   playConfetti={playConfetti}
+                  pressButton={pressButton}
             />}
         />
         <Route path='/about' element={<About/>}/>

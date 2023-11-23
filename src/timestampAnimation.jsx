@@ -17,10 +17,16 @@ const newAnimation = [
      end: 351, 
    },
    {
-     loop: false, 
-     start: 389,
-     end: 469, 
+     loop: true, 
+     start: 399,
+     end: 450, 
    },
+   {
+    loop: false, 
+    start: 450,
+    end: 467, 
+  },
+ 
    {
      loop: false, 
      start: 488,
@@ -37,7 +43,7 @@ const newAnimation = [
      end: 1189, 
    },
    {
-     loop: true, 
+     loop: false, 
      start: 1219,
      end: 1264, 
    },
