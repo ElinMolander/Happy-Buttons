@@ -49,45 +49,15 @@ function Button ({clickHandler, count}){
   },[count])
 
 
-
-  
-
- 
-
-  // const handleClick = () => {
-  //   // Hantera klickhändelsen här button-animation-second
-  //   console.log('Specifik del klickades!');
-  // };
-
-  // useEffect(() => {
-  //   if(buttonRef.current){
-  //     buttonRef.current.children[0].style.backgroundColor = 'none';
-  //     if(buttonRef.current.children[0].children[0].children[1].children[1].classList.contains('button-animation-second')){
-  //       console.log("hejhej")
-  //       handleClick()
-  //     }
-  //  }
-  // }, [count]); 
-
   return (
-    // <div ref={buttonRef} className="hej">
-  
      <div
-          
-          ref={animationContainer}
-          className="animationDiv"
-          onClick={() => clickHandler()}
-          
+        ref={animationContainer}
+        className="animationDiv"
+        onClick={() => clickHandler()}
       />
-     
-
-       
-      
-  //  </div>
   )
 }
 
 export default Button;
 
 
-// className="button-animation" } 

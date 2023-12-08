@@ -19,7 +19,7 @@ import textStory from '../src/components/textStory'
 function App() {
   
   const [open, setOpen] = useState(false)
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState(4)
   const style = { originX:"0.5",
                   originY: "1"} 
   const [playConfetti, setPlayConfetti] = useState(false)
@@ -40,15 +40,13 @@ function App() {
         setIsAloudPressButton(false)
     }else displayText()
           setTryToPressButton(true)
-          // setTimeout(()=>{
-          //   setTryToPressButton(true)
-          // },100)
   }
 
   function displayText(){
-    if(!isAloudPressButton && tryToPressButton){
-        return "Enjoy the happy sparks"
-    }else return textStory[count].text
+    return textStory[count].text
+    // if(!isAloudPressButton && tryToPressButton){
+    //     return "Enjoy the happy sparks"
+    // }else return textStory[count].text
 
    
 }
@@ -72,7 +70,7 @@ function App() {
           delay = 160
         break
         case 5:
-          delay = 2000
+          delay = 3500
         break
         case 6:
           delay = 4000
