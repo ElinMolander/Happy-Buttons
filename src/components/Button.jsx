@@ -15,9 +15,11 @@ function Button ({clickHandler, count}){
           loop: false,
         })
   const [returnToIdle, setReturnToIdle] = useState(0)
+  const buttonRef = useRef(null)
 
   useEffect(() => {
     if (animationContainer.current){
+    
       try {
         anim.current = lottie.loadAnimation({
           container: animationContainer.current,
@@ -27,6 +29,7 @@ function Button ({clickHandler, count}){
           animationData,
         })
         anim.current.playSegments([playSequence.start,playSequence.end],true);
+        
       } catch (error){
         console.log("Det upstod ett fel vid inläsningen av animationen")
       }
@@ -34,6 +37,7 @@ function Button ({clickHandler, count}){
           anim.current?.destroy()
       }
     }
+    
   },[returnToIdle])
 
   useEffect(() => {
@@ -41,18 +45,49 @@ function Button ({clickHandler, count}){
     anim.current.loop = newAnimation[count].loop
     anim.current.playSegments([newAnimation[count].start,newAnimation[count].end ],true)
     setPlaySequence(newAnimation)
+   
   },[count])
 
 
+
+  
+
+ 
+
+  // const handleClick = () => {
+  //   // Hantera klickhändelsen här button-animation-second
+  //   console.log('Specifik del klickades!');
+  // };
+
+  // useEffect(() => {
+  //   if(buttonRef.current){
+  //     buttonRef.current.children[0].style.backgroundColor = 'none';
+  //     if(buttonRef.current.children[0].children[0].children[1].children[1].classList.contains('button-animation-second')){
+  //       console.log("hejhej")
+  //       handleClick()
+  //     }
+  //  }
+  // }, [count]); 
+
   return (
-    <>
+    // <div ref={buttonRef} className="hej">
+  
      <div
-          onClick={() => clickHandler()}
+          
           ref={animationContainer}
           className="animationDiv"
+          onClick={() => clickHandler()}
+          
       />
-   </>
+     
+
+       
+      
+  //  </div>
   )
 }
 
 export default Button;
+
+
+// className="button-animation" } 

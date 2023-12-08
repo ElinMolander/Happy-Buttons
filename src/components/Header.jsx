@@ -6,7 +6,7 @@ export default function Header(){
         <About/>
          <h1>from header</h1>
         </>
-    )
+        )
 }
 
 

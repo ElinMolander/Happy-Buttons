@@ -1,12 +1,8 @@
 import { useState, useEffect, useRef } from 'react'
-
 import './index.css'
-// import Button from './components/Button.jsx'
-
 import About from './components/About'
-import Header from './components/Header.jsx'
-import Footer from './components/Footer.jsx'
 import Home from './components/Home.jsx'
+import {motion, AnimatePresence} from "framer-motion";
 import {
   BrowserRouter as Router,
   Routes,
@@ -17,6 +13,7 @@ import {
 import logo from '../src/images/logohappy.png'
 import happysmile from '../src/images/happysmile.png'
 import happyX from './happyX.png'
+import textStory from '../src/components/textStory'
 
 
 function App() {
@@ -25,50 +22,112 @@ function App() {
   const [count, setCount] = useState(0)
   const style = { originX:"0.5",
                   originY: "1"} 
-  const [move, setMove] = useState(false)
   const [playConfetti, setPlayConfetti] = useState(false)
   const size = { with:"40px"}
   const [countpressedButton, setCountPressedButton] = useState(0)
   const [clickNav, setClickNav] = useState(true)
   const [isAloudPressButton, setIsAloudPressButton] = useState(true)
-  
+  const [tryToPressButton,setTryToPressButton] = useState(false)
+
   function clickHandler(){
     if (isAloudPressButton){
-
       if (count >= 10){
         setCount(0)
         }else {
-        setCount(count + 1)
-        }
+          setCount(count + 1)
+          }
         confettiHandeler()
-    }
+        setIsAloudPressButton(false)
+    }else displayText()
+          setTryToPressButton(true)
+          // setTimeout(()=>{
+          //   setTryToPressButton(true)
+          // },100)
+  }
 
-    function confettiHandeler(){
-      setPlayConfetti(preState => true)
-        setCountPressedButton(countpressedButton +1)  
-        // setTimeout(() =>{
-        //   setPlayConfetti(false)
-        // },3000)
-    }
-    console.log("enjoy the sparks first")
-   }
+  function displayText(){
+    if(!isAloudPressButton && tryToPressButton){
+        return "Enjoy the happy sparks"
+    }else return textStory[count].text
 
-   function pressButton(){
-    setIsAloudPressButton(false)
-    console.log(`från pressButton${isAloudPressButton}`)
+   
+}
+
+  function confettiHandeler(){
+    let delay = 1000
+      switch(count){
+        case 0:
+          delay = 1300
+        break
+        case 1:
+          delay = 2200
+        break
+        case 2:
+          delay = 1170
+        break
+        case 3:
+          delay = 240
+        break
+        case 4:
+          delay = 160
+        break
+        case 5:
+          delay = 2000
+        break
+        case 6:
+          delay = 4000
+        break
+        case 7: 
+          delay = 500
+        break
+        case 8:
+          delay = 2000
+        break
+        case 9: 
+          delay = 960
+      }
+
+      setTimeout(()=> {
+        setPlayConfetti(true)
+    },delay)
+      setCountPressedButton(countpressedButton +1)  
+  }
+
+function pressButton(){
+    setPlayConfetti(false)
+    setIsAloudPressButton(true)
+    // console.log(`från is alour to press button ${isAloudPressButton}`)
   }
 
    function handleLinkChange(){
     setClickNav(preState => !preState)
    }
+   
 
   return (
   <>
      <Router>
       <header>
         <nav>
-            <Link className='home-link' to="/"> <img className='logo'src={logo}></img></Link>
-            <img className='smile' src={happysmile}></img>
+           {clickNav ? <Link className='home-link'
+                             to="/about"
+                             onClick={handleLinkChange}>
+                        <div className='logo-wraper'>
+                          <img className='logo'src={logo}></img>
+                          <img className='smile' src={happysmile}></img>
+                        </div> 
+                      </Link> :
+                      <Link className='home-link' to="/"
+                      onClick={handleLinkChange}>
+                      <div className='logo-wraper'>
+                        <img className='logo'src={logo}></img>
+                        <img className='smile' src={happysmile}></img>
+                      </div> 
+                    </Link> 
+
+            
+          } 
+             
             {clickNav ? <Link 
                           className='about-link'
                           to="/about" 
@@ -96,6 +155,7 @@ function App() {
                   countpressedButton={countpressedButton}
                   playConfetti={playConfetti}
                   pressButton={pressButton}
+                  displayText={displayText}
             />}
         />
         <Route path='/about' element={<About/>}/>
