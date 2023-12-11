@@ -5,7 +5,7 @@ import { motion, useAnimate } from 'framer-motion'
 import happymouth from '../images/happymouth.png'
 import happysmile from '../images/happysmile.png'
 import confettiStates from '../confettiData.jsx'
-import speechBubble from '../images/speechBubble.png'
+import speechBubble from '../images/speechbubble.png'
 import happyanimal from '../images/happyanimal.png'
 
 

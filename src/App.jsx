@@ -22,7 +22,7 @@ function App() {
   const [countpressedButton, setCountPressedButton] = useState(0)
   const [clickNav, setClickNav] = useState(true)
   const [isAloudPressButton, setIsAloudPressButton] = useState(true)
-  const [tryToPressButton,setTryToPressButton] = useState(false)
+
 
   function clickHandler(){
     if (isAloudPressButton){
