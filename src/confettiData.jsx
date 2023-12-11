@@ -1,4 +1,3 @@
-import React from "react";
 const confettiSource =  { x: 0, y: 0, w: window.innerWidth, h: window.innerHeight }
 
 const confettiStates = [
@@ -249,20 +248,3 @@ export default confettiStates
 
 
 
-// {
-//     colors:["#FFE28B","#D32C43","#4695E8"],
-//     drawShape: (ctx)=> {
-//         const scale = 0.2; // Skalfaktor för att justera storleken på spiralen
-//         // spiral
-//         ctx.beginPath();
-//         for (let i = 0; i < 720; i++) {
-//             const angle = (i * Math.PI) / 180;
-//             const x = 120 * scale + (angle * Math.cos(angle)) * 5 * scale;
-//             const y = 120 * scale + (angle * Math.sin(angle)) * 5 * scale;
-//             ctx.lineTo(x, y);
-//         }
-//         // ctx.strokeStyle = "rgba(0, 0, 255, 1)"; // Blå färg med full opacitet
-//         ctx.stroke();
-//         ctx.closePath();
-//     }
-// },

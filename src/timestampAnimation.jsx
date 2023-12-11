@@ -26,8 +26,7 @@ const newAnimation = [
     start: 450,
     end: 467, 
   },
- 
-   {
+    {
      loop: false, 
      start: 488,
      end: 509, 

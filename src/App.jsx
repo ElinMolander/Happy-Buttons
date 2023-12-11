@@ -1,29 +1,24 @@
-import { useState, useEffect, useRef } from 'react'
+import { useState } from 'react'
 import './index.css'
 import About from './components/About'
 import Home from './components/Home.jsx'
-import {motion, AnimatePresence} from "framer-motion";
 import {
   BrowserRouter as Router,
   Routes,
   Route,
   Link,
-  Navigate,
-} from "react-router-dom";
+} from 'react-router-dom';
 import logo from '../src/images/logohappy.png'
 import happysmile from '../src/images/happysmile.png'
 import happyX from './happyX.png'
 import textStory from '../src/components/textStory'
 
 
+
 function App() {
-  
   const [open, setOpen] = useState(false)
-  const [count, setCount] = useState(4)
-  const style = { originX:"0.5",
-                  originY: "1"} 
+  const [count, setCount] = useState(0)
   const [playConfetti, setPlayConfetti] = useState(false)
-  const size = { with:"40px"}
   const [countpressedButton, setCountPressedButton] = useState(0)
   const [clickNav, setClickNav] = useState(true)
   const [isAloudPressButton, setIsAloudPressButton] = useState(true)
@@ -38,18 +33,14 @@ function App() {
           }
         confettiHandeler()
         setIsAloudPressButton(false)
+      
     }else displayText()
-          setTryToPressButton(true)
+  
   }
 
   function displayText(){
     return textStory[count].text
-    // if(!isAloudPressButton && tryToPressButton){
-    //     return "Enjoy the happy sparks"
-    // }else return textStory[count].text
-
-   
-}
+  }
 
   function confettiHandeler(){
     let delay = 1000
@@ -84,22 +75,21 @@ function App() {
         case 9: 
           delay = 960
       }
-
       setTimeout(()=> {
         setPlayConfetti(true)
-    },delay)
+        setIsAloudPressButton(true)
+      },delay)
       setCountPressedButton(countpressedButton +1)  
   }
 
-function pressButton(){
+  function pressButton(){
     setPlayConfetti(false)
     setIsAloudPressButton(true)
-    // console.log(`från is alour to press button ${isAloudPressButton}`)
   }
 
-   function handleLinkChange(){
+  function handleLinkChange(){
     setClickNav(preState => !preState)
-   }
+  }
    
 
   return (
@@ -115,31 +105,27 @@ function pressButton(){
                           <img className='smile' src={happysmile}></img>
                         </div> 
                       </Link> :
-                      <Link className='home-link' to="/"
-                      onClick={handleLinkChange}>
-                      <div className='logo-wraper'>
-                        <img className='logo'src={logo}></img>
-                        <img className='smile' src={happysmile}></img>
-                      </div> 
-                    </Link> 
-
-            
-          } 
-             
-            {clickNav ? <Link 
-                          className='about-link'
-                          to="/about" 
-                          onClick={handleLinkChange}>
-                            About
-                        </Link> : <Link 
-                          className='about-link x-link'
-                          to="/" 
-                          onClick={handleLinkChange}>
-                            <img className="happy-x" src={happyX}></img>
-                            
-                            Back
+                      <Link className='home-link' 
+                            to="/"
+                            onClick={handleLinkChange}>
+                        <div className='logo-wraper'>
+                          <img className='logo'src={logo}></img>
+                          <img className='smile' src={happysmile}></img>
+                         </div> 
+                      </Link> 
+            } 
+             {clickNav ? <Link className='about-link'
+                                to="/about" 
+                                onClick={handleLinkChange}>
+                                About
+                        </Link> : 
+                        <Link className='about-link x-link'
+                              to="/" 
+                              onClick={handleLinkChange}>
+                              <img className="happy-x" src={happyX}></img>
+                              Back
                         </Link> 
-            }
+             }
           </nav>
           <div className='Header-boarder'></div>
       </header>
@@ -147,7 +133,6 @@ function pressButton(){
         <Route path='/' element={ <Home 
                   open={open} 
                   setOpen={setOpen} 
-                  style={size} 
                   clickHandler={clickHandler}
                   count={count}
                   countpressedButton={countpressedButton}

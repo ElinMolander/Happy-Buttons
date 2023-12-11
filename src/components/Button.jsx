@@ -1,6 +1,6 @@
 import React from 'react';
 import { useState, useEffect, useRef } from 'react'
-import lottie from "lottie-web/build/player/lottie_light"
+import lottie from 'lottie-web/build/player/lottie_light'
 import animationData from '../happyButtons.json'
 import newAnimation from '../timestampAnimation.jsx'
 
@@ -31,13 +31,12 @@ function Button ({clickHandler, count}){
         anim.current.playSegments([playSequence.start,playSequence.end],true);
         
       } catch (error){
-        console.log("Det upstod ett fel vid inläsningen av animationen")
+        console.log('An error occurred while loading animations')
       }
       return () => {
           anim.current?.destroy()
       }
     }
-    
   },[returnToIdle])
 
   useEffect(() => {
@@ -52,7 +51,7 @@ function Button ({clickHandler, count}){
   return (
      <div
         ref={animationContainer}
-        className="animationDiv"
+        className='animationDiv'
         onClick={() => clickHandler()}
       />
   )

@@ -1,36 +1,30 @@
 import Button from './Button.jsx'
 import Confetti from 'react-confetti'
-import { useState, useEffect, useRef } from 'react'
-import backgroundImage from "../images/backgroundHappy.png"
-import { motion, useAnimate } from "framer-motion"
-import happymouth from "../images/happymouth.png"
-import happysmile from "../images/happysmile.png"
-import confettiStates from "../confettiData.jsx"
-import speechBubble from "../images/speechBubble.png"
-// import useWindowSize from 'react-use/lib/useWindowSize'
+import backgroundImage from '../images/backgroundHappy.png'
+import { motion, useAnimate } from 'framer-motion'
+import happymouth from '../images/happymouth.png'
+import happysmile from '../images/happysmile.png'
+import confettiStates from '../confettiData.jsx'
+import speechBubble from '../images/speechBubble.png'
+import happyanimal from '../images/happyanimal.png'
 
-import { action } from '@storybook/addon-actions'
 
 export default function Home({open,setOpen,size,clickHandler,count,
     countpressedButton,playConfetti,pressButton,displayText}){
     const [scope, animate] = useAnimate()
-    
- 
-//   const { width, height } = useWindowSize
-
 
     
     return(
-    <div className="backgroundWraper">
-         <div ref={scope} className="background" style={{ backgroundImage: `url(${backgroundImage})`}}></div>
+    <div className='backgroundWraper'>
+         <div ref={scope} className='background' style={{backgroundImage: `url(${backgroundImage})`}}></div>
            <div className='wrap-main'>
                <div className='story-wrap'>
-                   <img className="happy-mouth" src={ happymouth }></img>
+                   <img className='happy-mouth' src={happymouth}></img>
                    <div className='speech-wrap'>
-                        <img className="speech-bubble" src={ speechBubble }></img>
+                        <img className='speech-bubble' src={speechBubble}></img>
                         <h2 className='story-text'>{displayText()}</h2>
                    </div>
-                 
+                    
                </div>
                 <div className='buttons-collection'>
                     <Button 
@@ -55,29 +49,27 @@ export default function Home({open,setOpen,size,clickHandler,count,
                                             initialVelocityY={{min: -40, max: 10}}
                                             initialVelocityX={{min: -20, max: 20}}
                                             onConfettiComplete={confetti => {
-                                                pressButton()
-                                                //  clickHandler()
-                                                // setParty(false)
+                                                // pressButton()
                                                 confetti.reset()
                                             }
                             }
                         />}
                 </div>
                 { countpressedButton > 0 ? <motion.div 
-                                                initial={{ scale:0 }}
-                                                animate={{ scale:1 }}
+                                               initial={{ opacity:0 }}
+                                               animate={{ opacity:1 }}
+                                               transition={{ delay: 1 }}
+                                               className='count-sektion' >
+                                                <img className='smile-buttonscetion'src={happysmile}></img>
+                                                <h2 className='buttonsPressed'> You pressed {countpressedButton} happy buttons! </h2>
+                                            </motion.div> : 
+                                            <motion.div
+                                                initial={{ opacity:0 }}
                                                 className='count-sektion'>
-                                    <img className="smile-buttonscetion"src={happysmile}></img>
-                                    <h2 className='buttonsPressed'> You pressed {countpressedButton} happy buttons! </h2>
-                                </motion.div> : <motion.div
-                                initial={{ opacity:0 }}
-                                animate={{ opacity:1 }}
-                                 className='count-sektion'>
-                                            <img className="smile-buttonscetion"src={happysmile}></img>
-                                        </motion.div>}
+                                                    <img className='smile-buttonscetion'src={happyanimal}></img>
+                                                    </motion.div>}
             </div>
           </div>
-        
     </div>
       
     )

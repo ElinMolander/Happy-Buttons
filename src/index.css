@@ -2,33 +2,48 @@
   font-family: 'Kalam', Arial, Helvetica, sans-serif;
   line-height: 1.5;
   font-weight: 400;
-
-  color-scheme: light dark;
   color: #ffffff;
   background: linear-gradient(180deg, #238DEB 0%, #EB238F 32.57%);
-/* font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-text-size-adjust: 100%; */
 }
 
 body {
   margin: 0;
-/* display: flex;
-  place-items: center; */
   width: 100vw;
  }
 
 #root {
-  /* height: 70vh;  */
   margin: 0 auto;
   text-align: center;
 }
 
-/* SECTIONS 
+.text-colum a:link {
+  color: #4e1111;
+}
+
+/* visited link */
+.text-colum a:visited {
+  color: #ece766;
+}
+
+/* mouse over link */
+.text-colum a:hover {
+  color: hotpink;
+}
+
+/* selected link */
+.text-colum a:active {
+  color: blue;
+}
+
+/* ----------------- 
+
+      SECTIONS 
+
+  -----------------
+*/
 
 /* NAV */
+
 nav {
   width: 100vw;
   height: 10vh;
@@ -38,13 +53,10 @@ nav {
   position: relative;
 }
   .home-link {
-    /* display: flex;
-    justify-content: center;
-    margin: 0 auto; */
     top: 0 auto;
     right: 0 auto;
     position: absolute;
-    
+    color: rgb(255, 255, 255);
   }
   .about-link {
     top: .5em;
@@ -52,19 +64,17 @@ nav {
     position: absolute;
     color: rgb(255, 255, 255);
     font-size: 1.5em;
-   
-  }
+   }
+   .about-link .home-link :visited {
+    color: rgb(255, 255, 255);
+   }
   .x-link {
     display: flex;
-    /* flex-direction: column;
-    justify-content: center;
-    align-items: center; */
   }
   .logo-wraper {
     display: flex;
     max-width: 15rem;
     width: 40vw;
-    
   }
     .logo {
       display: flex;
@@ -72,7 +82,6 @@ nav {
       align-items: center;
       width: 75%;
       object-fit: contain;
-      
     }
     .smile {
       width: 25%;
@@ -86,7 +95,7 @@ nav {
    
 
 
-/* HOME */
+/* HOME PAGE */
 
 .backgroundWraper {
   position: relative;
@@ -106,10 +115,7 @@ nav {
     
   }
     .wrap-main {
-      /* width: 70vw; */
       margin: 0 auto;
-      /* display: flex;
-      justify-content: center; */
     }
       .story-wrap {
         max-width: 40rem;
@@ -119,7 +125,6 @@ nav {
         align-items: center;
         margin: 1rem auto;
       }
-
       .speech-wrap {
         position: relative;
         width: 100%;
@@ -133,7 +138,6 @@ nav {
           top: 10%;
           transition: all 0.2s;
         }
-        
         .happy-mouth {
           width: 20%;
           object-fit: contain;
@@ -163,7 +167,7 @@ nav {
        }
 
 
-/* ABOUT */
+/* ABOUT PAGE*/
 
 .aboutWraper {
   position: relative;
@@ -172,12 +176,10 @@ nav {
   z-index: 1;
   height: 100%;
   width: 100vw;
-
 }
 .about-wraper{
   display: flex;
   flex-direction: row;
-  
 }
 .about-background{
   height: 100%;
@@ -211,8 +213,6 @@ header {
 }
 
 
-
-
 /* TEXT */
   h1 {
     font-size: 2.2em;
@@ -232,42 +232,16 @@ header {
   }
   
 
-/* .textStyle{
-  margin: 2em;
-} */
-/* 
-.buttonsPressed{
-  margin-top: 6em;
-} */
-
-button {
-  border-radius: 8px;
-  border: 2px solid rgb(23, 23, 20);
-  width: 100px;
-  height: 100px;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #FF8A8A;
-  cursor: none;
-  margin-bottom: 20em;
-}
-
 /* images */
+
 .button-animation {
   cursor: pointer;
-  color: #EB238F;
-}
-/* .button-animation :hover {
-  transform: scale(1.001);
-} */
-.logo-wraper :hover  {
-  color: #EB238F;
-  transform: scale(1.1);
 }
 
-  .happy-animals {
+.logo-wraper :hover {
+  transform: scale(1.1);
+}
+   .happy-animals {
     max-width: 10rem;
     width: 100%;
     object-fit: contain;
@@ -281,33 +255,21 @@ button {
 
 
 @media only screen and (min-width: 200px) {
-  /* :root {
-    color: #213547;
-    background-color: #ffffff;
-  } */
-
-  button {
-    background-color: #f9f9f9;
-  }
   .story-text {
     font-size: .7em;
     top: 0%;
   }
   .logo-wraper {
-    /* max-width: 60vw; */
     justify-content:flex-start;
   }
   .buttonsPressed {
     font-size: .9em;
   }
-
   .x-link,.about-link {
     font-size: 1em;
   }
-
-  .about-wraper{
+  .about-wraper { 
     flex-direction: column;
-    
   }
   p {
     width: 89vw;
@@ -318,6 +280,7 @@ button {
     padding: 0;
     font-size: 1.5em;
   }
+
 
 }
 
@@ -338,6 +301,7 @@ button {
   }
   .about-column {
     height: 70vh;
+    width: 30%;
   }
   .story-text {
     font-size: 1.5em;
@@ -357,16 +321,3 @@ button {
     font-size: 1.5em;
   }
 }
-
-@media only screen and (min-width: 800px) {
-  /* .story-wrap {
-    max-width: 70vw;
-  } */
-}
-
-
-/* @media only screen and (min-width: 1200px) {
-  .logo-wraper {
-    max-width: 25vw;
-  }
-} */
