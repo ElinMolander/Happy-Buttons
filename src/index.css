@@ -147,8 +147,6 @@ nav {
           transform: scale(1.1);
         }
 
-
-
       .buttons-collection {
         display: flex;
         flex-direction: column;
@@ -201,7 +199,6 @@ nav {
     width: 80vw;
   }
 
-
 header {
   background: linear-gradient(180deg, #238DEB 0%, #EB238F 184.39%);
 }
@@ -235,6 +232,10 @@ header {
 /* images */
 
 .button-animation {
+  cursor: pointer;
+}
+
+path , text {
   cursor: pointer;
 }
 
