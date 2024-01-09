@@ -7,7 +7,7 @@ import happysmile from '../images/happysmile.png'
 import confettiStates from '../confettiData.jsx'
 import speechBubble from '../images/speechbubble.png'
 import happyanimal from '../images/happyanimal.png'
-import happybuttonOG from '../images/happbuttons.png'
+import happybuttonOG from '../images/happybuttons.png'
 
 
 export default function Home({open,setOpen,size,clickHandler,count,
