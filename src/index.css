@@ -254,6 +254,9 @@ path , text {
     margin: .5rem;
   }
 
+  .og-image{
+    display: none;
+  }
 
 @media only screen and (min-width: 200px) {
   .story-text {

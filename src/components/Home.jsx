@@ -70,8 +70,9 @@ export default function Home({open,setOpen,size,clickHandler,count,
                                                     <img className='smile-buttonscetion'src={happyanimal}></img>
                                                     </motion.div>}
             </div>
+            <img className="og-image" src={happybuttonOG} alt="ogimage of text happy buttons and a smile" />
           </div>
-          <img className="og-image" src={happybuttonOG} alt="ogimage of text happy buttons and a smile" />
+          
     </div>
       
     )
