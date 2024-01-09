@@ -7,6 +7,7 @@ import happysmile from '../images/happysmile.png'
 import confettiStates from '../confettiData.jsx'
 import speechBubble from '../images/speechbubble.png'
 import happyanimal from '../images/happyanimal.png'
+import happybuttonOG from '../images/happbuttons.png'
 
 
 export default function Home({open,setOpen,size,clickHandler,count,
@@ -70,6 +71,7 @@ export default function Home({open,setOpen,size,clickHandler,count,
                                                     </motion.div>}
             </div>
           </div>
+          <img className="og-image" src={happybuttonOG} alt="ogimage of text happy buttons and a smile" />
     </div>
       
     )
